@@ -2,7 +2,7 @@ import React from 'react';
 import Prefecture from 'components/Prefecture';
 import Population from 'components/Population';
 import 'App.css';
-import { API_URL } from 'components/Constants';
+import { API_URL, PREFECTURE_URL, POPULATION_URL } from 'components/Constants';
 
 const X_API_KEY = process.env.REACT_APP_X_API_KEY;
 
@@ -32,7 +32,7 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    const url = API_URL + "prefectures"
+    const url = API_URL + PREFECTURE_URL
 
     fetch(url, {
         method: "GET",
@@ -69,7 +69,7 @@ class App extends React.Component {
 
     const populations = this.state.populations.slice(0);
 
-    const url = API_URL + "population/composition/perYear?cityCode=-&prefCode=" + prefCode;
+    const url = API_URL + POPULATION_URL + prefCode;
 
     fetch(url, {
         method: "GET",
